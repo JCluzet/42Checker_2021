@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/02/13 18:32:26 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/02/13 19:01:48 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ neutre='\x1B[0;m'
 clear
 
 echo "\n${vertclair} Check for update... ${neutre}\n"
-git pull
+git pull ~/.42Checker_2021
 
 clear
 
