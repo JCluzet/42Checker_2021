@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/02/13 18:17:11 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/02/13 18:30:11 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,8 @@ neutre='\x1B[0;m'
 clear
 
 echo "\n${vertclair} Check for update... ${neutre}\n"
-git pull --dry-run | grep -q -v 'Already up-to-date.' && changed=1
-
+git pull
+clear
 echo "\n${vertclair} ### 42Checker_2021 by JCluzet ### ${neutre}\n"
 
 echo "\n${vertfonce} --- NormeCheck --- ${neutre}\n"
