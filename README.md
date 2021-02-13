@@ -15,4 +15,4 @@
 
 ### git clone https://github.com/JCluzet/42Checker_2021.git ~/42Checker_2021 && alias 42check="sh ~/42Checker_2021/CheckHeader.sh ."
 
-👋🏼 If you encounter any problems when launching the script or if you have any questions, don't hesitate to send me an e-mail : jcluzet@student.42.fr
+👋🏼 If you encounter any problems when launching the script or if you have any questions, don't hesitate to send me an e-mail : jcluzet@student.42.fr, or leave an Issue
