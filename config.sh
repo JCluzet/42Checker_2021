@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 01:42:24 by jcluzet           #+#    #+#              #
-#    Updated: 2021/02/13 18:49:54 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/02/13 18:54:53 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,7 @@ echo "${blanc}\n    42Checker_2021..."
 	else
 		echo "${rougefonce}\n  ⚠️  42Checker_2021 Missing\n${vertclair}    Installation of 42Checker_2021..."
 		git clone https://github.com/JCluzet/42Checker_2021.git ~/.42Checker_2021
-		echo 'alias 42checker="sh ~/.42Checker_2021/CheckHeader.sh ."' >> ~/.zshrc
-		# source ~/.zshrc
+		echo 'alias 42check="sh ~/.42Checker_2021/CheckHeader.sh ."' >> ~/.zshrc
 	fi
 
 echo "${vertclair}\n    42Checker_2021 by jcluzet Ready to run ✔️ \n${vertfonce}              Simply run /42check\n"
