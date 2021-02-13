@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/02/13 20:38:40 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/02/13 20:40:57 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,6 @@ git reset --hard
 git pull
 
 cd $@; 
-
-echo"\nWork"
 
 clear
 
