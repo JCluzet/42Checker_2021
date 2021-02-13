@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/02/13 20:40:57 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/02/13 20:56:55 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,8 @@ echo "\n${vertclair} Check for update... ${neutre}\n"
 cd ~/.42Checker_2021/;
 if [[ `git fetch origin | grep -o "remote"` = "remote" ]]; then
 	git reset --hard | cut -c8-
+	git pull
 fi
-git pull
 
 cd $@;
 
