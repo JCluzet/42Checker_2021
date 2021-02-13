@@ -4,6 +4,8 @@
 
 ### Git Clone the project in ~/
 ### create an alias in ~/.zshrc named : 
-#### alias 42check="sh ~/42Checker_2021/CheckHeader.sh"
+#### alias 42check="sh ~/42Checker_2021/CheckHeader.sh ."
 
 ## All in one command : 
+
+### git clone https://github.com/JCluzet/42Checker_2021.git ~/42Checker_2021 && alias 42check="sh ~/42Checker_2021/CheckHeader.sh ."
