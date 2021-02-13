@@ -12,6 +12,6 @@
 
 ## All in one command : 
 
-### git clone https://github.com/JCluzet/42Checker_2021.git 42Checker && sh 42Checker/config.sh
+### git clone https://github.com/JCluzet/42Checker_2021.git && sh 42Checker_2021/config.sh
 
 👋🏼 If you encounter any problems when launching the script or if you have any questions, don't hesitate to send me an e-mail : jcluzet@student.42.fr, or leave an Issue
