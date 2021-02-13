@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 01:42:24 by jcluzet           #+#    #+#              #
-#    Updated: 2021/02/13 18:42:22 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/02/13 18:49:54 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,6 @@ echo "${blanc}\n    42Checker_2021..."
 		echo 'alias 42checker="sh ~/.42Checker_2021/CheckHeader.sh ."' >> ~/.zshrc
 		# source ~/.zshrc
 	fi
-rm -r 42Checker
+
 echo "${vertclair}\n    42Checker_2021 by jcluzet Ready to run ✔️ \n${vertfonce}              Simply run /42check\n"
 
