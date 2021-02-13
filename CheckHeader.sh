@@ -20,7 +20,7 @@ neutre='\x1B[0;m'
 
 clear
 echo "\n${vertclair} Check for update... ${neutre}\n"
-		
+
 	git -C ~/.42Checker_2021 fetch origin
 	version=$(git -C ~/.42Checker_2021 reset --hard | cut -c30-)
 	printf "   ${blanc}Version 42Checker_2021 : ${vertfonce}${version} ${neutre}> ${vertclair}"
@@ -49,6 +49,15 @@ ok=0
 ko=0
 sp="Fichiers"
 sp="🕐🕑🕒🕓🕔🕕🕖🕗🕘🕙🕚🕛"
+
+echo "\n${vertfonce} --- HeaderCheck --- ${neutre}\n"
+
+echo " ${blanc}📝 Created by :${vertclair}\n"
+grep -H -r --include \*.c "Created:" $@ | awk '{print $6}' | sort | uniq; echo
+echo " ${blanc}💻 Updated by :${vertclair}\n"
+grep -H -r --include \*.c "Updated:" $@ | awk '{print $6}' | sort | uniq;
+
+echo "\n"
 
 for fichier in $(find $@ -type f -iname "*.c" -o -iname "*.h")
  do
@@ -131,12 +140,3 @@ fi
 if (( $ko > 0 )); then
 	echo "\n\n   😰 ${rougefonce} ${ko} File(s) with ${error} norme(s) error\n     ${blanc}  /cat savenorme for more info"
 fi
-
-echo "\n${vertfonce} --- HeaderCheck --- ${neutre}\n"
-
-echo " ${blanc}📝 Created by :${vertclair}\n"
-grep -H -r --include \*.c "Created:" $@ | awk '{print $6}' | sort | uniq; echo
-echo " ${blanc}💻 Updated by :${vertclair}\n"
-grep -H -r --include \*.c "Updated:" $@ | awk '{print $6}' | sort | uniq;
-
-echo "\n"
