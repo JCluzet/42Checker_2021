@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/02/13 20:32:17 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/02/13 20:35:34 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ cd ~/.42Checker_2021/;
 git fetch origin master
 git reset --hard origin/master
 git pull
+
+cd $@; 
 
 clear
 
