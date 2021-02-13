@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/02/13 20:56:55 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/02/13 20:59:29 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ vertclair='\x1B[1;32m'
 orange='\x1B[0;33m'
 blanc='\x1B[1;37m'
 neutre='\x1B[0;m'
+
 
 clear
 echo "\n${vertclair} Check for update... ${neutre}\n"
