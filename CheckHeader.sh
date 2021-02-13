@@ -50,15 +50,6 @@ ko=0
 sp="Fichiers"
 sp="🕐🕑🕒🕓🕔🕕🕖🕗🕘🕙🕚🕛"
 
-echo "\n${vertfonce} --- HeaderCheck --- ${neutre}\n"
-
-echo " ${blanc}📝 Created by :${vertclair}\n"
-grep -H -r --include \*.c "Created:" $@ | awk '{print $6}' | sort | uniq; echo
-echo " ${blanc}💻 Updated by :${vertclair}\n"
-grep -H -r --include \*.c "Updated:" $@ | awk '{print $6}' | sort | uniq;
-
-echo "\n"
-
 for fichier in $(find $@ -type f -iname "*.c" -o -iname "*.h")
  do
 	((inall++))
@@ -140,3 +131,12 @@ fi
 if (( $ko > 0 )); then
 	echo "\n\n   😰 ${rougefonce} ${ko} File(s) with ${error} norme(s) error\n     ${blanc}  /cat savenorme for more info"
 fi
+
+echo "\n${vertfonce} --- HeaderCheck --- ${neutre}\n"
+
+echo " ${blanc}📝 Created by :${vertclair}\n"
+grep -H -r --include \*.c "Created:" $@ | awk '{print $6}' | sort | uniq; echo
+echo " ${blanc}💻 Updated by :${vertclair}\n"
+grep -H -r --include \*.c "Updated:" $@ | awk '{print $6}' | sort | uniq;
+
+echo "\n"
