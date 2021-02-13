@@ -26,11 +26,11 @@ echo "\n${vertclair} Check for update... ${neutre}\n"
 #git pull ~/.42Checker_2021 --allow-unrelated-histories
 
 cd ~/.42Checker_2021/;
-git fetch origin
-git reset --hard
+if [[ `git fetch origin | grep -o "remote"` = "remote" ]]; then
+	git reset --hard | cut -c8-)
 git pull
 
-cd $@; 
+cd $@;
 
 clear
 
