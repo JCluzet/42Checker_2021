@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/02/13 21:12:50 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/02/13 21:19:26 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,15 +20,11 @@ neutre='\x1B[0;m'
 
 clear
 echo "\n${vertclair} Check for update... ${neutre}\n"
-
-cd ~/.42Checker_2021/;
 		
-	git fetch origin
-	version=$(git reset --hard | cut -c30-)
+	git -C ~/.42Checker_2021 fetch origin
+	version=$(git -C ~/.42Checker_2021 reset --hard | cut -c30-)
 	printf "   ${blanc}Version 42Checker_2021 : ${vertfonce}${version} ${neutre}> ${vertclair}"
-	git pull
-
-cd $@;
+	git -C ~/.42Checker_2021 pull
 
 clear
 
