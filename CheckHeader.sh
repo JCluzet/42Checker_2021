@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/02/13 06:57:18 by jcluzet          ###   ########.fr        #
+#    Updated: 2021/02/13 18:17:11 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,13 +19,20 @@ neutre='\x1B[0;m'
 
 clear
 
+echo "\n${vertclair} Check for update... ${neutre}\n"
+git pull --dry-run | grep -q -v 'Already up-to-date.' && changed=1
+
 echo "\n${vertclair} ### 42Checker_2021 by JCluzet ### ${neutre}\n"
 
 echo "\n${vertfonce} --- NormeCheck --- ${neutre}\n"
 
-rm savenorme
+if [ -e savenorme ]
+then
+	rm savenorme
+fi
 i=6
 u=0
+errorinfile=-1
 error=0
 inall=0
 ok=0
@@ -72,39 +79,47 @@ printf "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"
 
    if (( $u < 10 ))
    then
-   	echo "  🎉 ${blanc} ${u} Files Checked\n"
+   	echo "  🎉 ${blanc} ${u} Files Checked"
    elif (( $u < 100))
    then
-   	echo "  🎉 ${blanc} ${u} Files Checked\n"
+   	echo "  🎉 ${blanc} ${u} Files Checked"
    else
-	echo "  🎉 ${blanc} ${u}Files Checked\n"
+	echo "  🎉 ${blanc} ${u}Files Checked"
    fi
 
+if [ -e savenorme ]
+then
 while read line
 do
 	var1=$(echo $line | grep Error)
 	if [[ `echo $line | grep -o "Error"` = "Error" ]]; then
 		((error++))
+		((errorinfile++))
 	fi
 	if [[ `echo $line | grep -o "Error"` = "Error" ]] && [[ "$var3" != "false" ]]; then
-		echo " 💥 ${blanc} $var2 ${neutre}>${rougefonce}$(echo $line | cut -c7-)"
+		printf "\n    💥 ${blanc} $var2 ${neutre}> ${rougefonce}$(echo $line | cut -c7-)"
 		((ko++))
 	fi
 	if [[ `echo $line | grep -o "Norme"` = "Norme" ]]; then
+		if (( $errorinfile > 0)); then printf "${blanc} + $errorinfile"; fi
 		var2=$(echo $line | cut -c10-)
 		var3=$(echo $line | cut -c10-)
+		((errorinfile = -1))
 	else
 		var3="false"
 		((ok++))
 	fi
 done < savenorme
-
+fi
 if (( $ko < 1 )); then
 	echo "   👍 ${vertclair} ${ok} Norminette OK"
-	rm savenorme
+	if [ -e savenorme ]
+	then
+		rm savenorme
+fi
 fi
 if (( $ko > 0 )); then
-	echo "\n   😰 ${rougefonce} ${ko} File(s) with ${error} norme(s) error\n     ${blanc}  /cat savenorme for more info"
+	echo "\n\n   😰 ${rougefonce} ${ko} File(s) with ${error} norme(s) error\n     ${blanc}  /cat savenorme for more info"
 fi
 
 echo "\n${vertfonce} --- HeaderCheck --- ${neutre}\n"
