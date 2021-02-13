@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/02/13 21:10:23 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/02/13 21:11:59 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ cd ~/.42Checker_2021/;
 		
 	git fetch origin
 	version=$(git reset --hard | cut -c30-)
-	printf "   ${blanc}Version 42Checker_2021 : ${vertclair}${version} > "
+	printf "   ${blanc}Version 42Checker_2021 : ${vertfonce}${version} ${neutre}> ${vertclair}"
 	git pull
 
 cd $@;
