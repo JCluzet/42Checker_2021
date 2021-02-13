@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/02/13 21:03:50 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/02/13 21:05:18 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,9 @@ echo "\n${vertclair} Check for update... ${neutre}\n"
 
 cd ~/.42Checker_2021/;
 	
+		
 	git fetch origin 
-	git reset --hard | cut -c30-
+	printf" Version Actuelle : ${git reset --hard | cut -c30-}"
 	git pull
 
 cd $@;
