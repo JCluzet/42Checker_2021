@@ -28,6 +28,7 @@ echo "\n${vertclair} Check for update... ${neutre}\n"
 cd ~/.42Checker_2021/;
 if [[ `git fetch origin | grep -o "remote"` = "remote" ]]; then
 	git reset --hard | cut -c8-
+fi
 git pull
 
 cd $@;
