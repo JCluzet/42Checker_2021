@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/02/13 21:02:44 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/02/13 21:03:50 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,16 +20,11 @@ neutre='\x1B[0;m'
 
 clear
 echo "\n${vertclair} Check for update... ${neutre}\n"
-#cd ~/.42Checker_2021
-#git pull
-#cd $@
-#git reset ~/.42Checker_2021 --hard HEAD && git checkout ~/.42Checker_2021 master
-#git pull ~/.42Checker_2021 --allow-unrelated-histories
 
 cd ~/.42Checker_2021/;
 	
-	git fetch origin > maj
-	git reset --hard | cut -c8-
+	git fetch origin 
+	git reset --hard | cut -c30-
 	git pull
 
 cd $@;
