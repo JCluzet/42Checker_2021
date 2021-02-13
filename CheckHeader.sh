@@ -23,7 +23,7 @@ echo "\n${vertclair} Check for update... ${neutre}\n"
 
 	git -C ~/.42Checker_2021 fetch origin
 	version=$(git -C ~/.42Checker_2021 reset --hard | cut -c30-)
-	printf "   ${blanc}Version 42Checker_2021 : ${vertfonce}${version} ${neutre}> ${vertclair}"
+	printf "   ${blanc}42Checker_2021 by jcluzet : ${vertfonce}${version} ${neutre}> ${vertclair}"
 	git -C ~/.42Checker_2021 pull
 
 clear
