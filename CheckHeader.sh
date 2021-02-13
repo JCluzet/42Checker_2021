@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/02/13 20:35:34 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/02/13 20:37:22 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,8 @@ echo "\n${vertclair} Check for update... ${neutre}\n"
 #git pull ~/.42Checker_2021 --allow-unrelated-histories
 
 cd ~/.42Checker_2021/;
-git fetch origin master
-git reset --hard origin/master
+git fetch origin
+git reset --hard
 git pull
 
 cd $@; 
