@@ -24,7 +24,6 @@ echo "\n${vertclair} Check for update... ${neutre}\n"
 	if [[ `git -C ~/.42Checker_2021 fetch origin | grep -o "remote:"` = "remote:" ]]; then
 		git -C ~/.42Checker_2021 pull
 		printf "   ${blanc}Installation of ${version} completed 🎉 ${vertfonce}${version} ${neutre}> Please relaunch with /42check ${vertclair}"
-	fi
 	else
 	version=$(git -C ~/.42Checker_2021 reset --hard | cut -c30-)
 	printf "   ${blanc}42Checker_2021 by jcluzet : ${vertfonce}${version} ${neutre}> ${vertclair}"
