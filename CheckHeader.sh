@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/02/14 16:07:59 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/02/14 19:22:43 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -140,6 +140,6 @@ grep -H -r --include \*.c "Created:" $@ | awk '{print $6}' | sort | uniq; echo
 echo " ${blanc}💻 Updated by :${vertclair}\n"
 grep -H -r --include \*.c "Updated:" $@ | awk '{print $6}' | sort | uniq;
 
-echo "\n"
+echo "\n\nAlex est nul aux echecs\n ${blanc}"
 
 fi
