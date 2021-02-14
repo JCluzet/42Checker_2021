@@ -17,30 +17,6 @@ orange='\x1B[0;33m'
 blanc='\x1B[1;37m'
 neutre='\x1B[0;m'
 
-
-clear
-
-echo "\n${vertclair} Check for update... ${neutre}\n"
-	git -C ~/.42Checker_2021 fetch origin
-	git -C ~/.42Checker_2021 pull
-		# printf "   ${blanc}Installation of ${version} completed 🎉 ${vertfonce}${version} ${neutre}> Please relaunch with /42check ${vertclair}"
-	version=$(git -C ~/.42Checker_2021 reset --hard | cut -c30-)
-	printf "   ${blanc}42Checker_2021 by jcluzet \n${vertclair}         Version : ${vertfonce}${version}${vertclair}"
-
-clear
-
-echo "\n${vertclair}       _  _  ____   ____ _               _               ____   ___ ____  _
-     | || ||___ \ / ___| |__   ___  ___| | _____ _ __  |___ \ / _ \___ \/ |
-     | || |_ __) | |   | '_ \ / _ \/ __| |/ / _ \ '__|   __) | | | |__) | |
-     |__   _/ __/| |___| | | |  __/ (__|   <  __/ |     / __/| |_| / __/| |
-        |_||_____|\____|_| |_|\___|\___|_|\_\___|_|    |_____|\___/_____|_| ${neutre}\n"
-
-echo "\n${vertfonce} --- NormeCheck --- ${neutre}\n"
-
-if [ -e savenorme ]
-then
-	rm savenorme
-fi
 i=6
 u=0
 errorinfile=-1
@@ -50,6 +26,81 @@ ok=0
 ko=0
 sp="Fichiers"
 sp="🕐🕑🕒🕓🕔🕕🕖🕗🕘🕙🕚🕛"
+
+
+clear
+
+echo "\n${vertclair} Check for update... ${neutre}\n"        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+	git -C ~/.42Checker_2021 fetch origin
+	git -C ~/.42Checker_2021 pull
+		# printf "   ${blanc}Installation of ${version} completed 🎉 ${vertfonce}${version} ${neutre}> Please relaunch with /42check ${vertclair}"
+	version=$(git -C ~/.42Checker_2021 reset --hard | cut -c30-)
+	printf "   ${blanc}42Checker_2021 by jcluzet \n${vertclair}         Version : ${vertfonce}${version}${vertclair}"
+
+header()
+{
+
+clear
+
+echo "\n${vertclair}       _  _  ____   ____ _               _               ____   ___ ____  _
+     | || ||___ \ / ___| |__   ___  ___| | _____ _ __  |___ \ / _ \___ \/ |
+     | || |_ __) | |   | '_ \ / _ \/ __| |/ / _ \ '__|   __) | | | |__) | |
+     |__   _/ __/| |___| | | |  __/ (__|   <  __/ |     / __/| |_| / __/| |
+        |_||_____|\____|_| |_|\___|\___|_|\_\___|_|    |_____|\___/_____|_| ${neutre}\n"
+
+}
+
+header
+
+if [ -e savenorme ]
+then
+	rm savenorme
+fi
+
+
+while true; do                                                 ## DEMANDE DE CHECKHEADER
+	printf "\n${blanc} 📝 Do you want to check header? (y/n)\n\n"
+    read -p " " yn
+    case $yn in
+        [Yy]* )
+			echo "\n${vertfonce} --- HeaderCheck --- ${neutre}\n"
+			echo " ${blanc}📝 Created by :${vertclair}\n"
+			grep -H -r --include \*.c "Created:" $@ | awk '{print $6}' | sort | uniq; echo
+			echo " ${blanc}💻 Updated by :${vertclair}\n"
+			grep -H -r --include \*.c "Updated:" $@ | awk '{print $6}' | sort | uniq
+			break;;
+        [Nn]* ) echo "\n${rougefonce} 😕 Header not checked"
+			break;;
+        * ) header
+			echo "\n${rougefonce}                                            ❌ Please enter yes or no (y/n)";;
+    esac
+done
+
+# options=("Option 1" "Option 2" "Option 3" "Quit")            # MENU
+# select opt in "${options[@]}"
+# do
+#     case $opt in
+#         "Option 1")
+#             echo "you chose choice 1"
+#             ;;
+#         "Option 2")
+#             echo "you chose choice 2"
+#             ;;
+#         "Option 3")
+#             echo "you chose choice $REPLY which is $opt"
+#             ;;
+#         "Quit")
+#             break
+#             ;;
+#         *) echo "invalid option $REPLY";;
+#     esac
+# done
+
+
+
+echo "\n${vertfonce} --- NormeCheck --- ${neutre}\n"
+
 
 for fichier in $(find $@ -type f -iname "*.c" -o -iname "*.h")
  do
@@ -132,10 +183,3 @@ fi
 if (( $ko > 0 )); then
 	echo "\n\n   😰 ${rougefonce} ${ko} File(s) with ${error} norme(s) error\n     ${blanc}  /cat savenorme for more info"
 fi
-
-echo "\n${vertfonce} --- HeaderCheck --- ${neutre}\n"
-
-echo " ${blanc}📝 Created by :${vertclair}\n"
-grep -H -r --include \*.c "Created:" $@ | awk '{print $6}' | sort | uniq; echo
-echo " ${blanc}💻 Updated by :${vertclair}\n"
-grep -H -r --include \*.c "Updated:" $@ | awk '{print $6}' | sort | uniq;
