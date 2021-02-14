@@ -19,6 +19,7 @@ neutre='\x1B[0;m'
 
 
 clear
+echo "\nTEST\n"
 echo "\n${vertclair} Check for update... ${neutre}\n"
 	git -C ~/.42Checker_2021 fetch origin
 	git -C ~/.42Checker_2021 pull
