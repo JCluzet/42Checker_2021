@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/02/13 21:29:21 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/02/14 16:07:59 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -122,7 +122,7 @@ do
 done < savenorme
 fi
 if (( $ko < 1 )); then
-	echo "   👍 ${vertclair} ${ok} Norminette OK"
+	echo "   👍 ${vertclair} ${u} Norminette OK"
 	if [ -e savenorme ]
 	then
 		rm savenorme
