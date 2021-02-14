@@ -20,6 +20,7 @@ neutre='\x1B[0;m'
 
 clear
 echo "\n${vertclair} Check for update... ${neutre}\n"
+
 	if [[ `git -C ~/.42Checker_2021 fetch origin | grep -o "remote:"` = "remote:" ]]; then
 		git -C ~/.42Checker_2021 pull
 		printf "   ${blanc}Installation of ${version} completed 🎉 ${vertfonce}${version} ${neutre}> Please relaunch with /42check ${vertclair}"
