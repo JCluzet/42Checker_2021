@@ -33,13 +33,13 @@ sp="🕐🕑🕒🕓🕔🕕🕖🕗🕘🕙🕚🕛"
 
 clear
 
-echo "\n${vertclair} Check for update... ${neutre}\n"
+# echo "\n${vertclair} Check for update... ${neutre}\n"
 
-	git -C ~/.42Checker_2021 fetch origin
-	git -C ~/.42Checker_2021 pull
-		# printf "   ${blanc}Installation of ${version} completed 🎉 ${vertfonce}${version} ${neutre}> Please relaunch with /42check ${vertclair}"
-	version=$(git -C ~/.42Checker_2021 reset --hard | cut -c30-)
-	printf "   ${blanc}42Checker_2021 by jcluzet \n${vertclair}         Version : ${vertfonce}${version}${vertclair}"
+# 	git -C ~/.42Checker_2021 fetch origin
+# 	git -C ~/.42Checker_2021 pull
+# 		# printf "   ${blanc}Installation of ${version} completed 🎉 ${vertfonce}${version} ${neutre}> Please relaunch with /42check ${vertclair}"
+# 	version=$(git -C ~/.42Checker_2021 reset --hard | cut -c30-)
+# 	printf "   ${blanc}42Checker_2021 by jcluzet \n${vertclair}         Version : ${vertfonce}${version}${vertclair}"
 
 header()
 {
@@ -165,8 +165,18 @@ while true; do                                                 ## DEMANDE DE CHE
 			 grep -H -r  "Updated:" $fichier | awk '{print $6}' >> .42Checker_2021_Header
 			 grep -H -r  "By:" $fichier | awk '{print $3}' >> .42Checker_2021_Header
 			done
-			 sort .42Checker_2021_Header | uniq
-			 rm .42Checker_2021_Header
+			sort .42Checker_2021_Header | uniq >> .42Checker_2021_Header_Sort
+			while read line
+				do
+				printf "\n     $line"
+				((auteur++))
+			done < .42Checker_2021_Header_Sort
+			if ((auteur > 1))
+			then
+				printf "\n\n   📭 Plusieurs auteurs ont été trouvé, affichez plus de détails ? (y/n)\n"
+			fi
+			rm .42Checker_2021_Header
+			rm .42Checker_2021_Header_Sort
 			break;;
         [Nn]* ) echo "\n${rougefonce} 😕 Header not checked"
 			sleep 1;
