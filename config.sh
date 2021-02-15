@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 01:42:24 by jcluzet           #+#    #+#              #
-#    Updated: 2021/02/13 22:15:17 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/02/15 16:28:32 by jcluzet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ neutre='\x1B[0;m'
 
 echo "${blanc}\n    Norminette Check..."
 
-	if [[ `~/.norminette/norminette.rb config.sh | grep -o "Warning:"` = "Warning:" ]]; then
+	if [[ `norminette config.sh | grep -o "Warning:"` = "Warning:" ]]; then
 		echo "${vertclair}    Norminette correclty installed ✔️"
 	else
 		echo "${rougefonce}\n  ⚠️  Norminette 42 Missing\n${vertclair}    Installation of 42Norminette..."
@@ -28,7 +28,7 @@ echo "${blanc}\n    Norminette Check..."
 
 echo "${blanc}\n    42Checker_2021..."
 
-	if [[ `sh ~/.42Checker_2021/CheckHeader.sh . | grep -o "NormeCheck"` = "NormeCheck" ]]; then
+	if [[ `sh ~/.42Checker_2021/CheckHeader.sh . | grep -o "Check for update..."` = "Check for update..." ]]; then
 		echo "${vertclair}    42Checker_2021 already installed ✔️\n"
 	else
 		echo "${rougefonce}\n  ⚠️  42Checker_2021 Missing\n${vertclair}    Installation of 42Checker_2021..."
