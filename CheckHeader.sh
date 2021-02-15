@@ -19,6 +19,7 @@ neutre='\x1B[0;m'
 
 i=6
 u=0
+gooddock=0
 errorinfile=-1
 error=0
 inallancien=0
@@ -27,11 +28,13 @@ ok=0
 ignorefiles="vdin3irn3dubhwbuy3bru2ruy23b32uyrv23bur32"
 ignorefilesdeux="vdin3irn3dubhwbuy3bru2ruy23b32uyrv23bur32"
 ko=0
-sp="Fichiers"
-sp="🕐🕑🕒🕓🕔🕕🕖🕗🕘🕙🕚🕛"
+sp="/-\|"
+
 
 
 clear
+
+# VERIFIER SI LA NORMINETTE EST COMPATIBLE/INSTALLE
 
 echo "\n${vertclair} Check for update... ${neutre}\n"
 
@@ -40,6 +43,8 @@ echo "\n${vertclair} Check for update... ${neutre}\n"
 		# printf "   ${blanc}Installation of ${version} completed 🎉 ${vertfonce}${version} ${neutre}> Please relaunch with /42check ${vertclair}"
 	version=$(git -C ~/.42Checker_2021 reset --hard | cut -c30-)
 	printf "   ${blanc}42Checker_2021 by jcluzet \n${vertclair}         Version : ${vertfonce}${version}${vertclair}"
+
+version="Pre_launch_Beta"
 
 header()
 {
@@ -54,19 +59,20 @@ echo "\n${vertclair}       _  _  ____   ____ _               _               ___
 
 if [[ $ignorefiles = 'vdin3irn3dubhwbuy3bru2ruy23b32uyrv23bur32' ]] && [[ $ignorefilesdeux = 'vdin3irn3dubhwbuy3bru2ruy23b32uyrv23bur32' ]]
 	then
-	printf "                                         ${vertclair}${PWD##*/} ${blanc}> ${vertclair}${inall} ${blanc}Files${neutre} 🔦"
+	printf "     Version : ${vertfonce}${version}                 ${vertclair}${PWD##*/} ${blanc}> ${vertclair}${inall} ${blanc}Files${neutre} 🔦"
 fi
 
 if [[ $ignorefiles != 'vdin3irn3dubhwbuy3bru2ruy23b32uyrv23bur32' ]] && [[ $ignorefilesdeux = 'vdin3irn3dubhwbuy3bru2ruy23b32uyrv23bur32' ]]
 	then
-	printf "                                         ${vertclair}${PWD##*/}${blanc} without ${rougefonce}${ignorefiles} ${blanc}> ${vertclair}${inall} ${blanc}Files${neutre} 🔦"
+	printf "     Version : ${vertfonce}${version}       ${vertclair}${PWD##*/}${blanc} without ${rougefonce}${ignorefiles} ${blanc}> ${vertclair}${inall} ${blanc}Files${neutre} 🔦"
 fi
 
 if [[ $ignorefiles != 'vdin3irn3dubhwbuy3bru2ruy23b32uyrv23bur32' ]] && [[ $ignorefilesdeux != 'vdin3irn3dubhwbuy3bru2ruy23b32uyrv23bur32' ]]
 	then
-	printf "                                         ${vertclair}${PWD##*/}${blanc} without ${rougefonce}${ignorefiles}${blanc}, ${rougefonce}${ignorefilesdeux} ${blanc}> ${vertclair}${inall} ${blanc}Files${neutre} 🔦"
+	printf "     Version : ${vertfonce}${version} ${vertclair}${PWD##*/}${blanc} without ${rougefonce}${ignorefiles}${blanc}, ${rougefonce}${ignorefilesdeux} ${blanc}> ${vertclair}${inall} ${blanc}Files${neutre} 🔦"
 fi
 printf "\n"
+
 
 }
 
@@ -75,11 +81,30 @@ for fichier in $(find $@ -type f -iname "*.c" -o -iname "*.h" | grep -v "^./${ig
 	((inall++))
 done
 
+for fichier in $(find $@ -type f -iname "*.c" -o -iname "*.h" | grep -v "^./${ignorefiles}")
+ do
+	((gooddock++))
+done
+
 header
+
+if [ $gooddock = 0 ]; then
+	printf "\n${rougefonce}          Error ${vertclair}${PWD##*/} ${blanc}does not contain any .c or .h files.\n               ${neutre}           >  Check your repertory\n"
+else
 
 if [ -e savenorme ]
 then
 	rm savenorme
+fi
+
+if [ -e .42Checker_2021_Header_Sort ]
+then
+	rm .42Checker_2021_Header_Sort
+fi
+
+if [ -e .42Checker_2021_Header ]
+then
+	rm .42Checker_2021_Header
 fi
 
 while true; do                                                                                    ## DEMANDE DE CHECKALL ?
@@ -104,7 +129,6 @@ while true; do                                                                  
 			ignorefiles2=$(($inallancien-$inall))
 			header
 			printf "\n${vertclair} 📚 ${ignorefiles}${blanc} with ${ignorefiles2} files will be ignored of ${vertclair}${PWD##*/}${blanc}\n\n"
-
 
 
 while true; do                                                 ## ignore plus ??
@@ -134,11 +158,6 @@ while true; do                                                 ## ignore plus ??
 			printf "\n${vertclair} 📚 ${ignorefiles}${blanc} ${ignorefiles2} files will be ignored of ${vertclair}${PWD##*/}${blanc}\n\n";;
     esac
 done
-
-
-
-
-
 			break;;
         * ) header
 			echo "\n${rougefonce}                                            ❌ Please enter yes or no (y/n)";;
@@ -147,18 +166,13 @@ done
 
 # grep -H -r  "Created:" *.c | awk '{print $6}'
 
-# for fichier in $(find $@ -type f -iname "*.c" -o -iname "*.h" | grep -v "^./${ignorefiles}")
-#  do
-# 	((inall++))
-# done
-
 while true; do                                                 ## DEMANDE DE CHECKHEADER
 	printf "\n${blanc} 📝 Do you want to check header? (y/n)\n\n"
     read -p " " yn
     case $yn in
         [Yy]* )
 			header
-			echo "\n ${blanc}   📝 Header Created by :${vertclair}\n"
+			echo "\n ${blanc}   📝 Header Created by :${vertclair}"
 			for fichier in $(find $@ -type f -iname "*.c" -o -iname "*.h" | grep -v "^./${ignorefiles}/" | grep -v "^./${ignorefilesdeux}/")
  			do
 			 grep -H -r  "Created:" $fichier | awk '{print $6}' >> .42Checker_2021_Header
@@ -173,7 +187,57 @@ while true; do                                                 ## DEMANDE DE CHE
 			done < .42Checker_2021_Header_Sort
 			if ((auteur > 1))
 			then
-				printf "\n\n   📭 Plusieurs auteurs ont été trouvé, affichez plus de détails ? (y/n)\n"
+			while true; do                                                                   ## DEMANDE DE DETAILS HEADER ?
+				printf "\n\n   📭 ${rougefonce}More then 1 name finded. ${blanc}Want to check details for a name ? ${neutre}(y/n)\n\n     "
+    			read -p " " yn
+    			case $yn in
+        		[Yy]* )
+					header
+					echo "\n ${blanc}   📝 Header Created by :${vertclair}"
+					while read line
+					do
+						printf "\n     $line"
+						((auteur++))
+					done < .42Checker_2021_Header_Sort
+					echo "\n\n ${blanc}   📝 Enter the name you want to search for :${vertclair}\n"
+					read -p "       " nom
+					present=0
+					for fichier in $(find $@ -type f -iname "*.c" -o -iname "*.h" | grep -v "^./${ignorefiles}" | grep -v "^./${ignorefilesdeux}")
+					do
+						if [[ `grep -H -r  "Created:" $fichier | awk '{print $6}'` = $nom ]] ||
+						[[ `grep -H -r  "Updated:" $fichier | awk '{print $6}'` = $nom ]] ||
+						 [[ `grep -H -r  "By:" $fichier | awk '{print $3}'` = $nom ]]; then
+						((present++))
+						printf "\n      $fichier"
+						fi
+					done
+					if [ $present = 0 ]; then
+						header
+						echo "\n ${blanc}   📝 Header Created by :${vertclair}"
+						while read line
+						do
+							printf "\n     $line"
+							((auteur++))
+						done < .42Checker_2021_Header_Sort
+						echo "\n\n ${blanc}   📝 Enter the name you want to search for :${vertclair}\n"
+						printf "         ${rougefonce}⁉️ ${vertclair}$nom ${rougefonce}does not appear in any Header"
+					fi
+					printf "\n"
+					break;;
+        		[Nn]* ) echo "\n${rougefonce} 😕 Header details ignored"
+					sleep 1;
+					header
+					break;;
+        		* ) header
+					echo "\n${rougefonce}                                            ❌ Please enter yes or no (y/n)"
+					echo "\n ${blanc}   📝 Header Created by :${vertclair}"
+					while read line
+					do
+						printf "\n     $line"
+						((auteur++))
+					done < .42Checker_2021_Header_Sort;;
+    			esac
+			done
 			fi
 			rm .42Checker_2021_Header
 			rm .42Checker_2021_Header_Sort
@@ -188,31 +252,10 @@ while true; do                                                 ## DEMANDE DE CHE
 done
 
 
-# while true; do                                                 ## DEMANDE DE CHECKHEADER
-# 	printf "\n${blanc} 📝 Do you want to check header? (y/n)\n\n"
-#     read -p " " yn
-#     case $yn in
-#         [Yy]* )
-# 			header
-# 			echo "\n ${blanc}   📝 Header Created by :${vertclair}\n"
-# 			# printf "         "
-# 			grep -H -r --include \*.c "Created:" $@ | awk '{print $6}' | sort | uniq; echo
-# 			echo " ${blanc}   💻 Header Updated by :${vertclair}\n"
-# 			# printf "        "
-# 			grep -H -r --include \*.c "Updated:" $@ | awk '{print $6}' | sort | uniq
-# 			break;;
-#         [Nn]* ) echo "\n${rougefonce} 😕 Header not checked"
-# 			sleep 1;
-# 			header
-# 			break;;
-#         * ) header
-# 			echo "\n${rougefonce}                                            ❌ Please enter yes or no (y/n)";;
-#     esac
-# done
-
+# if [[ `grep -H -r  "Created:" $fichier | awk '{print $6}'` = $nom ]] ||
 while true; do                                                 ## DEMANDE DE CHECKNORME
-	printf "\n${blanc} 🐈‍ Do you want to check norminette? (y/n)\n\n"
-    read -p " " yn
+	printf "\n${blanc}    🐈‍ Do you want to check norminette? (y/n)\n\n"
+    read -p "     " yn
     case $yn in
         [Yy]* )
 header
@@ -229,9 +272,9 @@ if (( $u < 1000 ))
    then
 	nombreb4='\b\b\b'
 fi
-for fichier in $(find $@ -type f -iname "*.c" -o -iname "*.h" | grep -v "^./${ignorefiles}")
+for fichier in $(find $@ -type f -iname "*.c" -o -iname "*.h" | grep -v "^./${ignorefiles}" | grep -v "^./${ignorefilesdeux}")
  do
-   norminette $fichier >> savenorme
+   ~/.norminette/norminette.rb $fichier >> savenorme
  if (( $u < 10 ))
    then
    	printf "${nombreb4}${blanc}\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b${sp:i++%${#sp}:1} ${u}/${inall} Files Norme Checked"
@@ -252,7 +295,7 @@ printf "\n"
    then
    	echo "  🎉 ${blanc} ${u} Files Checked"
    else
-	echo "  🎉 ${blanc} ${u}Files Checked"
+	echo "  🎉 ${blanc} ${u} Files Checked"
    fi
 if [ -e savenorme ]
 then
@@ -298,6 +341,8 @@ fi
 			echo "\n${rougefonce}                                            ❌ Please enter yes or no (y/n)";;
     esac
 done
+
+fi
 
 # options=("Option 1" "Option 2" "Option 3" "Quit")            # MENU
 # select opt in "${options[@]}"
