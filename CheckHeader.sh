@@ -33,13 +33,13 @@ sp="🕐🕑🕒🕓🕔🕕🕖🕗🕘🕙🕚🕛"
 
 clear
 
-# echo "\n${vertclair} Check for update... ${neutre}\n"
+echo "\n${vertclair} Check for update... ${neutre}\n"
 
-# 	git -C ~/.42Checker_2021 fetch origin
-# 	git -C ~/.42Checker_2021 pull
-# 		# printf "   ${blanc}Installation of ${version} completed 🎉 ${vertfonce}${version} ${neutre}> Please relaunch with /42check ${vertclair}"
-# 	version=$(git -C ~/.42Checker_2021 reset --hard | cut -c30-)
-# 	printf "   ${blanc}42Checker_2021 by jcluzet \n${vertclair}         Version : ${vertfonce}${version}${vertclair}"
+	git -C ~/.42Checker_2021 fetch origin
+	git -C ~/.42Checker_2021 pull
+		# printf "   ${blanc}Installation of ${version} completed 🎉 ${vertfonce}${version} ${neutre}> Please relaunch with /42check ${vertclair}"
+	version=$(git -C ~/.42Checker_2021 reset --hard | cut -c30-)
+	printf "   ${blanc}42Checker_2021 by jcluzet \n${vertclair}         Version : ${vertfonce}${version}${vertclair}"
 
 header()
 {
