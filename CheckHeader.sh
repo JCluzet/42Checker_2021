@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/02/14 19:22:43 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/02/15 16:06:54 by jcluzet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -221,7 +221,7 @@ if (( $u < 1000 ))
 fi
 for fichier in $(find $@ -type f -iname "*.c" -o -iname "*.h" | grep -v "^./${ignorefiles}")
  do
-   ~/.norminette/norminette.rb $fichier >> savenorme
+   norminette $fichier >> savenorme
  if (( $u < 10 ))
    then
    	printf "${nombreb4}${blanc}\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b${sp:i++%${#sp}:1} ${u}/${inall} Files Norme Checked"
