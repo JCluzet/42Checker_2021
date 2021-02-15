@@ -33,7 +33,7 @@ sp="🕐🕑🕒🕓🕔🕕🕖🕗🕘🕙🕚🕛"
 
 clear
 
-echo "\n${vertclair} Check for update... ${neutre}\n"        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+echo "\n${vertclair} Check for update... ${neutre}\n"
 
 	git -C ~/.42Checker_2021 fetch origin
 	git -C ~/.42Checker_2021 pull
