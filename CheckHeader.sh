@@ -83,7 +83,7 @@ then
 fi
 
 while true; do                                                                                    ## DEMANDE DE CHECKALL ?
-	printf "\n${blanc} 📚 Do you want to check ${rougefonce}ALL ${blanc}files ${neutre}(*.c & *.h)${blanc} in ${vertclair}${PWD##*/}${blanc}? (y/n)\n\n"
+	printf "\n${blanc} 📚 Do you want to check ${rougefonce}ALL ${blanc}files ${neutre}(*.c & *.h)${blanc} in ${vertclair}${PWD##*/}${blanc}? (y/n)\n\n    "
     read -p " " yn
     case $yn in
         [Yy]* )
@@ -103,7 +103,7 @@ while true; do                                                                  
 			done
 			ignorefiles2=$(($inallancien-$inall))
 			header
-			printf "\n${vertclair} 📚 ${ignorefiles}${blanc} and ${ignorefiles2} files will be ignored of ${vertclair}${PWD##*/}${blanc}\n\n"
+			printf "\n${vertclair} 📚 ${ignorefiles}${blanc} with ${ignorefiles2} files will be ignored of ${vertclair}${PWD##*/}${blanc}\n\n"
 
 
 
@@ -113,7 +113,7 @@ while true; do                                                 ## ignore plus ??
     case $yn in
         [Yy]* )
 			header
-			printf "\n${vertclair} 📚 ${ignorefiles}${blanc} and ${ignorefiles2} files will be ignored of ${vertclair}${PWD##*/}${blanc}\n      "
+			printf "\n${vertclair} 📚 ${ignorefiles}${blanc} with ${ignorefiles2} files will be ignored of ${vertclair}${PWD##*/}${blanc}\n      "
 			printf "\n${blanc} 📚 What repertory do you want to ignore in ${vertclair}${PWD##*/}${blanc} ? \n\n      "
 			printf "         "
 			read ignorefilesdeux
@@ -124,14 +124,14 @@ while true; do                                                 ## ignore plus ??
 			done
 			ignorefiles3=$(($inallancien-$inall))
 			header
-			printf "\n${vertclair} 📚 ${ignorefiles}${blanc}, ${vertclair}${ignorefilesdeux} ${blanc}and ${ignorefiles3} files will be ignored of ${vertclair}${PWD##*/}${blanc}\n\n      "
+			printf "\n${vertclair} 📚 ${ignorefiles}${blanc}, ${vertclair}${ignorefilesdeux} ${blanc}with ${ignorefiles3} files will be ignored of ${vertclair}${PWD##*/}${blanc}\n\n      "
 			break;;
         [Nn]* )
 			header
 			break;;
         * ) header
 			echo "\n${rougefonce}                                            ❌ Please enter yes or no (y/n)"
-			printf "\n${vertclair} 📚 ${ignorefiles}${blanc} and ${ignorefiles2} files will be ignored of ${vertclair}${PWD##*/}${blanc}\n\n";;
+			printf "\n${vertclair} 📚 ${ignorefiles}${blanc} ${ignorefiles2} files will be ignored of ${vertclair}${PWD##*/}${blanc}\n\n";;
     esac
 done
 
@@ -145,6 +145,12 @@ done
     esac
 done
 
+# grep -H -r  "Created:" *.c | awk '{print $6}'
+
+# for fichier in $(find $@ -type f -iname "*.c" -o -iname "*.h" | grep -v "^./${ignorefiles}")
+#  do
+# 	((inall++))
+# done
 
 while true; do                                                 ## DEMANDE DE CHECKHEADER
 	printf "\n${blanc} 📝 Do you want to check header? (y/n)\n\n"
@@ -153,11 +159,14 @@ while true; do                                                 ## DEMANDE DE CHE
         [Yy]* )
 			header
 			echo "\n ${blanc}   📝 Header Created by :${vertclair}\n"
-			printf "         "
-			grep -H -r --include \*.c "Created:" $@ | awk '{print $6}' | sort | uniq; echo
-			echo " ${blanc}   💻 Header Updated by :${vertclair}\n"
-			printf "        "
-			grep -H -r --include \*.c "Updated:" $@ | awk '{print $6}' | sort | uniq
+			for fichier in $(find $@ -type f -iname "*.c" -o -iname "*.h" | grep -v "^./${ignorefiles}/" | grep -v "^./${ignorefilesdeux}/")
+ 			do
+			 grep -H -r  "Created:" $fichier | awk '{print $6}' >> .42Checker_2021_Header
+			 grep -H -r  "Updated:" $fichier | awk '{print $6}' >> .42Checker_2021_Header
+			 grep -H -r  "By:" $fichier | awk '{print $3}' >> .42Checker_2021_Header
+			done
+			 sort .42Checker_2021_Header | uniq
+			 rm .42Checker_2021_Header
 			break;;
         [Nn]* ) echo "\n${rougefonce} 😕 Header not checked"
 			sleep 1;
@@ -167,6 +176,29 @@ while true; do                                                 ## DEMANDE DE CHE
 			echo "\n${rougefonce}                                            ❌ Please enter yes or no (y/n)";;
     esac
 done
+
+
+# while true; do                                                 ## DEMANDE DE CHECKHEADER
+# 	printf "\n${blanc} 📝 Do you want to check header? (y/n)\n\n"
+#     read -p " " yn
+#     case $yn in
+#         [Yy]* )
+# 			header
+# 			echo "\n ${blanc}   📝 Header Created by :${vertclair}\n"
+# 			# printf "         "
+# 			grep -H -r --include \*.c "Created:" $@ | awk '{print $6}' | sort | uniq; echo
+# 			echo " ${blanc}   💻 Header Updated by :${vertclair}\n"
+# 			# printf "        "
+# 			grep -H -r --include \*.c "Updated:" $@ | awk '{print $6}' | sort | uniq
+# 			break;;
+#         [Nn]* ) echo "\n${rougefonce} 😕 Header not checked"
+# 			sleep 1;
+# 			header
+# 			break;;
+#         * ) header
+# 			echo "\n${rougefonce}                                            ❌ Please enter yes or no (y/n)";;
+#     esac
+# done
 
 while true; do                                                 ## DEMANDE DE CHECKNORME
 	printf "\n${blanc} 🐈‍ Do you want to check norminette? (y/n)\n\n"
