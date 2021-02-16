@@ -87,7 +87,7 @@ done
 header
 
 if [ $gooddock = 0 ]; then
-	printf "\n${rougefonce}          Error ${vertclair}${PWD##*/} ${blanc}does not contain any .c or .h files.\n               ${neutre}           >  Check your repertory\n"
+	printf "\n${rougefonce}          Error ${vertclair}${PWD##*/} ${blanc}does not contain any .c or .h files.\n               ${neutre}           >  Check your repertory\n\n\n\n"
 else
 
 if [ -e savenorme ]
@@ -274,7 +274,7 @@ if (( $u < 1000 ))
 fi
 for fichier in $(find $@ -type f -iname "*.c" -o -iname "*.h" | grep -v "^./${ignorefiles}" | grep -v "^./${ignorefilesdeux}")
  do
-   ~/.norminette/norminette.rb $fichier >> savenorme
+   norminette $fichier >> savenorme
  if (( $u < 10 ))
    then
    	printf "${nombreb4}${blanc}\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b${sp:i++%${#sp}:1} ${u}/${inall} Files Norme Checked"
