@@ -116,7 +116,8 @@ while true; do                                                                  
 			break;;
         [Nn]* )
 			header
-			printf "\n${blanc} 📚 What repertory do you want to ignore in ${vertclair}${PWD##*/}${blanc} ? \n \n     "
+			printf "\n${blanc} 📚 What repertory do you want to ignore in ${vertclair}${PWD##*/}${blanc} ? \n \n"
+			printf "$(ls -d */ | tr / " ")\n\n"
 			read ignorefiles
 			inallancien=$inall
 			inall=0
@@ -136,7 +137,8 @@ while true; do                                                 ## ignore plus ??
         [Yy]* )
 			header
 			printf "\n${vertclair} 📚 ${ignorefiles}${blanc} with ${ignorefiles2} files will be ignored of ${vertclair}${PWD##*/}${blanc}\n      "
-			printf "\n${blanc} 📚 What repertory do you want to ignore in ${vertclair}${PWD##*/}${blanc} ? \n\n      "
+			printf "\n${blanc} 📚 What repertory do you want to ignore in ${vertclair}${PWD##*/}${blanc} ? \n\n"
+			printf "$(ls -d */ | tr / " ")\n\n"
 			printf "         "
 			read ignorefilesdeux
 			inall=0
@@ -218,7 +220,7 @@ while true; do                                                 ## DEMANDE DE CHE
 							((auteur++))
 						done < .42Checker_2021_Header_Sort
 						echo "\n\n ${blanc}   📝 Enter the name you want to search for :${vertclair}\n"
-						printf "         ${rougefonce}⁉️ ${vertclair}$nom ${rougefonce}does not appear in any Header"
+						printf "         ${rougefonce}⁉️  ${vertclair}$nom ${rougefonce}does not appear in any Header"
 					fi
 					printf "\n"
 					break;;
