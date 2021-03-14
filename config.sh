@@ -34,9 +34,10 @@ echo "${blanc}\n    42Checker_2021..."
 		echo "${rougefonce}\n  ⚠️  42Checker_2021 Missing\n${vertclair}    Installation of 42Checker_2021..."
 		git clone https://github.com/JCluzet/42Checker_2021.git ~/.42Checker_2021
 		echo 'alias 42check="sh ~/.42Checker_2021/CheckHeader.sh ."' >> ~/.zshrc
+		source ~/.zshrc
 	fi
 
-echo "${vertclair}\n    42Checker_2021 by jcluzet Ready to run ✔️ \n${vertfonce}              Simply reload your terminal and\n"
+echo "${vertclair}\n    42Checker_2021 by jcluzet Ready to run ✔️ \n${vertfonce}\n"
 
 echo "                         __        ___  _  ____      _               _
        _ __ _   _ _ __   \ \      / / || ||___ \ ___| |__   ___  ___| | __
