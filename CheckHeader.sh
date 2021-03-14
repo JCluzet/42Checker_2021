@@ -344,6 +344,51 @@ done
 
 fi
 
+ ##############################################################################################################
+
+if [[ ${PWD##*/} == 'ft_printf' || ${PWD##*/} == 'printf' ]]
+then
+while true; do                                                 ## detection printf ??
+	printf "\n${blanc} 📚 ${vertclair}PRINTF ${blanc}repo detected, do you want launch a tester ? (y/n)\n\n        "
+    read -p " " yn
+    case $yn in
+        [Yy]* )
+			header
+			git clone https://github.com/Mazoise/42TESTERS-PRINTF
+			cd 42TESTERS-PRINTF
+			header
+			printf "\n\n${blanc}Running Printf tester... ${neutre}\n\n     "
+			sleep 2
+			sh runtest.sh
+			while true; do                                                                   ## DEMANDE DE DETAILS tester printf ?
+				printf "\n\n${blanc}Want to check details ? ${neutre}(y/n)\n\n     "
+    			read -p " " yn
+    			case $yn in
+        		[Yy]* )
+					header
+					cat diff.txt
+					break;;
+        		[Nn]* ) echo "\n${rougefonce} 😕 Printf Tester details ignored"
+					sleep 1;
+					header
+					break;;
+        		* ) header
+					echo "\n${rougefonce}                                            ❌ Please enter yes or no (y/n)"
+    			esac
+			done
+			break;;
+        [Nn]* )
+			header
+			break;;
+        * ) header
+			echo "\n${rougefonce}                                            ❌ Please enter yes or no (y/n)"
+    esac
+done
+fi
+
+#########################
+
+
 # options=("Option 1" "Option 2" "Option 3" "Quit")            # MENU
 # select opt in "${options[@]}"
 # do
