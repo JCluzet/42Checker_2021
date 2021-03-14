@@ -346,7 +346,7 @@ fi
 
  ##############################################################################################################
 
-if [[ ${PWD##*/} == 'ft_printf' || ${PWD##*/} == 'printf' ]]
+if [[ ${PWD##*/} == 'ft_printf' || ${PWD##*/} == 'printf' || ${PWD##*/} == 'my_printf' ]]
 then
 while true; do                                                 ## detection printf ??
 	printf "\n${blanc} 📚 ${vertclair}PRINTF ${blanc}repo detected, do you want launch a tester ? (y/n)\n\n        "
