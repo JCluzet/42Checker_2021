@@ -38,11 +38,11 @@ clear
 
 echo "\n${vertclair} Check for update... ${neutre}\n"
 
-	git -C ~/.42Checker_2021 fetch origin
-	git -C ~/.42Checker_2021 pull
-		# printf "   ${blanc}Installation of ${version} completed 🎉 ${vertfonce}${version} ${neutre}> Please relaunch with /42check ${vertclair}"
-	version=$(git -C ~/.42Checker_2021 reset --hard | cut -c30-)
-	printf "   ${blanc}42Checker_2021 by jcluzet \n${vertclair}         Version : ${vertfonce}${version}${vertclair}"
+	# git -C ~/.42Checker_2021 fetch origin
+	# git -C ~/.42Checker_2021 pull
+	# 	# printf "   ${blanc}Installation of ${version} completed 🎉 ${vertfonce}${version} ${neutre}> Please relaunch with /42check ${vertclair}"
+	# version=$(git -C ~/.42Checker_2021 reset --hard | cut -c30-)
+	# printf "   ${blanc}42Checker_2021 by jcluzet \n${vertclair}         Version : ${vertfonce}${version}${vertclair}"
 
 header()
 {
@@ -384,7 +384,18 @@ while true; do                                                 ## detection prin
 			echo "\n${rougefonce}                                            ❌ Please enter yes or no (y/n)"
     esac
 done
+else
+	printf "\n${blanc} Can't find a tester for your ${vertclair}${PWD##*/}${blanc} project :("
+	sleep 2
 fi
+
+clear
+
+echo "\n${vertclair}       _  _  ____   ____ _               _               ____   ___ ____  _
+     | || ||___ \ / ___| |__   ___  ___| | _____ _ __  |___ \ / _ \___ \/ |
+     | || |_ __) | |   | '_ \ / _ \/ __| |/ / _ \ '__|   __) | | | |__) | |
+     |__   _/ __/| |___| | | |  __/ (__|   <  __/ |     / __/| |_| / __/| |
+        |_||_____|\____|_| |_|\___|\___|_|\_\___|_|    |_____|\___/_____|_| \n\n                            Made with ♥ by jcluzet\n"
 
 #########################
 
