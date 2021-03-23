@@ -2,6 +2,9 @@
 
 42 Checker made in bash to check the Norme & Header name of project's school 42
 
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/55356071/112183720-ce0f5f00-8bfe-11eb-9d89-f8730bc372fa.gif)
+
+
 ### How to use 42Checker_2021 on Mac ?
 
 <img width="865" alt="Capture d’écran 2021-02-13 à 22 34 16" src="https://user-images.githubusercontent.com/55356071/107862255-e0ea8300-6e4b-11eb-9c8f-68e1f924348d.png">
