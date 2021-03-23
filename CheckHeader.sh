@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/03/23 15:20:34 by jcluzet          ###   ########.fr        #
+#    Updated: 2021/03/23 16:43:15 by jcluzet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -376,7 +376,7 @@ while true; do                                                 ## detection prin
 					echo "\n${rougefonce}                                            ❌ Please enter yes or no (y/n)"
     			esac
 			done
-			read -n 1 -s -r -p "${blanc}Press any key to quit"
+			read -n 1 -s -r -p "Press any key to quit"
 			break;;
         [Nn]* )
 			header
@@ -394,18 +394,18 @@ done
 elif [[ ${PWD##*/} == 'Cub3D' || ${PWD##*/} == 'cub3D' || ${PWD##*/} == 'cub3d' || ${PWD##*/} == 'CUB3D' ]]          ## Verification Cub3D
 then
 while true; do
-	printf "\n${blanc} 📚 ${vertclair}Cub3D ${blanc}repo detected, do you want launch ${vertclair}ad-benoit9 ♥ GitHub ${blanc}tester ? (y/n)\n\n        "
+	printf "\n${blanc} 📚 ${vertclair}Cub3D ${blanc}repo detected, do you want launch ${vertclair} humblEgo ♥ GitHub ${blanc}tester ? (y/n)\n\n        "
     read -p " " yn
     case $yn in
         [Yy]* )
 			header
-			git clone https://github.com/adbenoit-9/42_cub3D_tester.git
-			cd 42_cub3D_tester
+			git clone https://github.com/humblEgo/cub3D_map_tester.git
+			cd cub3D_map_tester
 			header
 			printf "\n\n${blanc}Running Cub3D tester... ${neutre}\n\n     "
 			sleep 2
-			sh testcub3D.sh
-			read -n 1 -s -r -p "${blanc}Press any key to quit"
+			sh test_map_valid_function.sh
+			read -n 1 -s -r -p "Press any key to quit"
 			break;;
         [Nn]* )
 			header
@@ -417,7 +417,7 @@ done
 
 else
 	printf "\n${blanc} Can't find a tester for your ${vertclair}${PWD##*/}${blanc} project :("
-	read -n 1 -s -r -p "${blanc}Press any key to quit"
+	read -n 1 -s -r -p "Press any key to quit"
 fi
 
 clear
