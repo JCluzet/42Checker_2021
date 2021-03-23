@@ -376,7 +376,9 @@ while true; do                                                 ## detection prin
 					echo "\n${rougefonce}                                            ❌ Please enter yes or no (y/n)"
     			esac
 			done
+			cd ..
 			read -n 1 -s -r -p "Press any key to quit"
+			rm -rf 42TESTERS-PRINTF
 			break;;
         [Nn]* )
 			header
@@ -405,7 +407,104 @@ while true; do
 			printf "\n\n${blanc}Running Cub3D tester... ${neutre}\n\n     "
 			sleep 2
 			sh test_map_valid_function.sh
+			cd ..
 			read -n 1 -s -r -p "Press any key to quit"
+			rm -rf cub3D_map_tester
+			break;;
+        [Nn]* )
+			header
+			break;;
+        * ) header
+			echo "\n${rougefonce}                                            ❌ Please enter yes or no (y/n)"
+    esac
+done
+
+##########################################################################################################################
+
+elif [[ ${PWD##*/} == 'LIBFT' || ${PWD##*/} == 'libft' || ${PWD##*/} == 'libft' || ${PWD##*/} == 'Libft' ]]          ## Verification Libft
+then
+while true; do
+	printf "\n${blanc} 📚 ${vertclair}Libft ${blanc}repo detected, do you want launch ${vertclair} alelievr ♥ GitHub ${blanc}tester ? (y/n)\n\n        "
+    read -p " " yn
+    case $yn in
+        [Yy]* )
+			header
+			cd ..
+			git clone https://github.com/alelievr/libft-unit-test.git
+			cd libft-unit-test
+			make
+			header
+			printf "\n\n${blanc}Running Cub3D tester... ${neutre}\n\n     "
+			sleep 2
+			./run_test
+			cd ..
+			while true; do                                                                   ## DEMANDE DE SPLIT tester Libft ?
+				printf "\n\n${blanc}Do you want launch ${vertclair} Ysoroko ♥ GitHub ${blanc}SPLIT tester ? "
+    			read -p " " yn
+    			case $yn in
+        		[Yy]* )
+					cd libft
+					git clone https://github.com/Ysoroko/FT_SPLIT_TESTER.git
+					cd FT_SPLIT_TESTER
+					make
+					cd ..
+					rm -rf FT_SPLIT_TESTER
+					break;;
+        		[Nn]* ) echo "\n${rougefonce} 😕 Split Tester ignored"
+					sleep 1;
+					header
+					break;;
+        		* ) header
+					echo "\n${rougefonce}                                            ❌ Please enter yes or no (y/n)"
+    			esac
+			done
+			read -n 1 -s -r -p "Press any key to quit"
+			rm -rf libft-unit-test
+			break;;
+        [Nn]* )
+			header
+			break;;
+        * ) header
+			echo "\n${rougefonce}                                            ❌ Please enter yes or no (y/n)"
+    esac
+done
+
+#######################################################################################################################
+
+elif [[ ${PWD##*/} == 'GNL' || ${PWD##*/} == 'get_next_line' || ${PWD##*/} == 'GET_NEXT_LINE' || ${PWD##*/} == 'GNL' ]]          ## Verification GNL
+then
+while true; do
+	printf "\n${blanc} 📚 ${vertclair}GNL ${blanc}repo detected, do you want launch ${vertclair} Mazoise ♥ GitHub ${blanc}tester ? (y/n)\n\n        "
+    read -p " " yn
+    case $yn in
+        [Yy]* )
+			header
+			git clone https://github.com/Mazoise/42TESTERS-GNL.git
+			cd 42TESTERS-GNL
+			header
+			printf "\n\n${blanc}Running GNL tester ... ${neutre}\n\n     "
+			sh all_tests.sh
+			read -n 1 -s -r -p "Press any key to continue to next test"
+			sh runHUGE.sh
+			read -n 1 -s -r -p "Press any key to continue to next test"
+			sh runSTDIN+LEAKS.sh
+			while true; do                                                                   ## DEMANDE DE Test GNL Bonus ?
+				printf "\n\n${blanc}Do you want launch the bonus parts tests ? "
+    			read -p " " yn
+    			case $yn in
+        		[Yy]* )
+					sh all_tests_with_bonus.sh
+					break;;
+        		[Nn]* ) echo "\n${rougefonce} 😕 Bonus parts tester ignored"
+					sleep 1;
+					header
+					break;;
+        		* ) header
+					echo "\n${rougefonce}                                            ❌ Please enter yes or no (y/n)"
+    			esac
+			done
+			read -n 1 -s -r -p "Press any key to quit"
+			rm -rf 42TESTERS-GNL
 			break;;
         [Nn]* )
 			header
@@ -416,7 +515,7 @@ while true; do
 done
 
 else
-	printf "\n${blanc} Can't find a tester for your ${vertclair}${PWD##*/}${blanc} project :("
+	printf "\n${blanc} Can't find a tester for your ${vertclair}${PWD##*/}${blanc} project :(\n\n"
 	read -n 1 -s -r -p "Press any key to quit"
 fi
 
@@ -427,26 +526,3 @@ echo "\n${vertclair}       _  _  ____   ____ _               _               ___
      | || |_ __) | |   | '_ \ / _ \/ __| |/ / _ \ '__|   __) | | | |__) | |
      |__   _/ __/| |___| | | |  __/ (__|   <  __/ |     / __/| |_| / __/| |
         |_||_____|\____|_| |_|\___|\___|_|\_\___|_|    |_____|\___/_____|_| \n\n                            Made with ♥ by jcluzet\n"
-
-#########################
-
-
-# options=("Option 1" "Option 2" "Option 3" "Quit")            # MENU
-# select opt in "${options[@]}"
-# do
-#     case $opt in
-#         "Option 1")
-#             echo "you chose choice 1"
-#             ;;
-#         "Option 2")
-#             echo "you chose choice 2"
-#             ;;
-#         "Option 3")
-#             echo "you chose choice $REPLY which is $opt"
-#             ;;
-#         "Quit")
-#             break
-#             ;;
-#         *) echo "invalid option $REPLY";;
-#     esac
-# done
