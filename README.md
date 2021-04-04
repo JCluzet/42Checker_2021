@@ -26,7 +26,7 @@ This projet can :
 #### Git Clone the project
 #### Execute config.sh to install 42Checker_2021 & norminette
 
-## All in one command : 
+## Install in one command : 
 
 ### git clone https://github.com/JCluzet/42Checker_2021.git && sh 42Checker_2021/config.sh
 
