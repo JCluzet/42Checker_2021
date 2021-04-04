@@ -1,6 +1,6 @@
 # 42Checker_2021
 
-42 Checker made in bash to check the Norme & Header name of project's school 42
+42 Checker made in bash to check the Norme & Header name of project's school 42. 
 This projet can :
 
   - Check the headers of each file to make sure there is no other username
