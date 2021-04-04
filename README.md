@@ -14,10 +14,6 @@ This projet can :
   
   - Checks if parts of the project have been plagiarized (SOON)
 
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/55356071/112183862-f1d2a500-8bfe-11eb-8e82-c94629d81597.gif)
-
-
-
 ### How to use 42Checker_2021 on Mac ?
 
 <img width="865" alt="Capture d’écran 2021-02-13 à 22 34 16" src="https://user-images.githubusercontent.com/55356071/107862255-e0ea8300-6e4b-11eb-9c8f-68e1f924348d.png">
