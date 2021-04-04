@@ -1,6 +1,18 @@
 # 42Checker_2021
 
 42 Checker made in bash to check the Norme & Header name of project's school 42
+42Checker can do :
+
+  - Check the headers of each file to make sure there is no other username
+  - Check the norminette of school 42 for all files
+  - Automatically launches a tester for projects :
+      
+      - Libft 
+      - Get_next_line
+      - ft_printf
+      - Cub3D
+  
+  - Checks if parts of the project have been plagiarized (SOON)
 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/55356071/112183862-f1d2a500-8bfe-11eb-8e82-c94629d81597.gif)
 
