@@ -46,8 +46,8 @@ echo "\n${vertclair} Check for update... ${neutre}\n"
 		printf "   ${blanc}Installation of ${version} completed 🎉 "
 		~/.42Checker_2021/CheckHeader.sh .
 		exit
-	else
-		header
+	# else
+	# 	header
 	fi
 
 	printf "   ${blanc}42Checker_2021 by jcluzet \n${vertclair}         Version : ${vertfonce}${version}${vertclair}"
