@@ -35,6 +35,7 @@ echo "${blanc}\n    42Checker_2021..."
 		git clone https://github.com/JCluzet/42Checker_2021.git ~/.42Checker_2021
 		echo 'alias 42check="sh ~/.42Checker_2021/CheckHeader.sh ."' >> ~/.zshrc
 		source ~/.zshrc
+		zsh
 	fi
 
 echo "${vertclair}\n    42Checker_2021 by jcluzet Ready to run ✔️ \n${vertfonce}\n"

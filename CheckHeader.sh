@@ -526,6 +526,7 @@ while true; do
 			header
 			git clone https://github.com/besellem/push_swap.git tester_besellem
 			cp -r tester_besellem/py tester
+			make
 			rm -rf tester_besellem
 			header
 			printf "\n\n${blanc}Enter the number of arguments you want to test for push_swap : "
