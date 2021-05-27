@@ -342,8 +342,6 @@ fi
     esac
 done
 
-fi
-
  ##############################################################################################################
 
 if [[ ${PWD##*/} == 'ft_printf' || ${PWD##*/} == 'printf' || ${PWD##*/} == 'my_printf' ]]
@@ -564,6 +562,8 @@ done
 else
 	printf "\n${blanc} Can't find a tester for your ${vertclair}${PWD##*/}${blanc} project :(\n\n"
 	read -n 1 -s -r -p "Press any key to quit"
+fi
+
 fi
 
 clear
