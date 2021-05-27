@@ -30,17 +30,12 @@ ignorefilesdeux="vdin3irn3dubhwbuy3bru2ruy23b32uyrv23bur32"
 ko=0
 sp="/-\|"
 
-
-
-clear
-
 # VERIFIER SI LA NORMINETTE EST COMPATIBLE/INSTALLE
 
 echo "\n${vertclair} Check for update... ${neutre}\n"
-
+	version=$(git -C ~/.42Checker_2021 reset --hard | cut -c30-)
 	git -C ~/.42Checker_2021 fetch origin
 	git -C ~/.42Checker_2021 pull | grep Already
-	version=$(git -C ~/.42Checker_2021 reset --hard | cut -c30-)
 	if [ $? -eq 1 ];
 	then
 		printf "   ${blanc}Installation of ${version} completed 🎉 "
