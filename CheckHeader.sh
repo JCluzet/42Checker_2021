@@ -524,8 +524,7 @@ while true; do
     case $yn in
         [Yy]* )
 			header
-			rm -rf tester_besellem
-			git clone https://github.com/besellem/push_swap.git --force tester_besellem
+			git clone https://github.com/besellem/push_swap.git tester_besellem
 			cp -r tester_besellem/py tester
 			rm -rf tester_besellem
 			header
