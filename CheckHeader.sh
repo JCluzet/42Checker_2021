@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/03/23 16:43:15 by jcluzet          ###   ########.fr        #
+#    Updated: 2021/05/27 16:05:56 by jcluzet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -505,6 +505,53 @@ while true; do
 			done
 			read -n 1 -s -r -p "Press any key to quit"
 			rm -rf 42TESTERS-GNL
+			break;;
+        [Nn]* )
+			header
+			break;;
+        * ) header
+			echo "\n${rougefonce}                                            ❌ Please enter yes or no (y/n)"
+    esac
+done
+
+############################################################################################# TESTER PUSH_SWAP
+
+elif [[ ${PWD##*/} == 'pushswap' || ${PWD##*/} == 'push_swap' || ${PWD##*/} == 'ft_push_swap' || ${PWD##*/} == 'PUSH_SWAP' ]]
+then
+while true; do
+	printf "\n${blanc} 📚 ${vertclair}Push_swap ${blanc}repo detected, do you want launch ${vertclair}besellem ♥ GitHub ${blanc}tester ? (y/n)\n\n        "
+    read -p " " yn
+    case $yn in
+        [Yy]* )
+			header
+			rm -rf tester_besellem
+			git clone https://github.com/besellem/push_swap.git --force tester_besellem
+			cp -r tester_besellem/py tester
+			rm -rf tester_besellem
+			header
+			printf "\n\n${blanc}Enter the number of arguments you want to test for push_swap : "
+			read -p " " args
+			printf "\n\n${blanc}Running 50 tests for Push_swap with $args arguments... ${neutre}\n\n     "
+			python3 tester/check_range.py 0 $args
+			while true; do                                                                   ## DEMANDE DE refaire un test ?
+				printf "\n\n${blanc}Want to continue with another arguments ? ${neutre}(y/n)\n\n     "
+    			read -p " " yn
+    			case $yn in
+        		[Yy]* )
+					header
+					printf "\n\n${blanc}Enter the number of arguments you want to test for push_swap : "
+					read -p " " args
+					printf "\n\n${blanc}Running Push_swap tester with $args arguments... ${neutre}\n\n     "
+					python3 tester/check_range.py 0 $args
+					continue;;
+				[Nn]* ) echo "\n${rougefonce} Exit tester..."
+					header
+					break;;
+				* ) header
+					echo "\n${rougefonce}                                            ❌ Please enter yes or no (y/n)"
+				esac
+			done
+			rm -rf tester
 			break;;
         [Nn]* )
 			header
