@@ -39,9 +39,14 @@ clear
 echo "\n${vertclair} Check for update... ${neutre}\n"
 
 	git -C ~/.42Checker_2021 fetch origin
-	git -C ~/.42Checker_2021 pull
-		# printf "   ${blanc}Installation of ${version} completed 🎉 ${vertfonce}${version} ${neutre}> Please relaunch with /42check ${vertclair}"
+	git -C ~/.42Checker_2021 pull | grep Already
 	version=$(git -C ~/.42Checker_2021 reset --hard | cut -c30-)
+	if [ $? -eq 1 ];
+	then
+		printf "   ${blanc}Installation of ${version} completed 🎉 "
+		~/.42Checker_2021/CheckHeader.sh .
+		exit
+	fi
 	printf "   ${blanc}42Checker_2021 by jcluzet \n${vertclair}         Version : ${vertfonce}${version}${vertclair}"
 
 header()
