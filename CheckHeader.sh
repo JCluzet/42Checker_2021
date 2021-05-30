@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/05/27 16:05:56 by jcluzet          ###   ########.fr        #
+#    Updated: 2021/05/30 20:10:47 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ echo "\n${vertclair} Check for update... ${neutre}\n"
 	if [ $? -eq 1 ];
 	then
 		printf "   ${blanc}Installation of ${version} completed 🎉 "
-		~/.42Checker_2021/CheckHeader.sh .
+		sudo ~/.42Checker_2021/CheckHeader.sh .
 		exit
 	# else
 	# 	header
