@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/07/03 20:02:48 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/07/03 20:04:42 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,8 +38,7 @@ echo "\n${vertclair} Check for update... ${neutre}\n"
 	git -C ~/.42Checker_2021 fetch
 	git -C ~/.42Checker_2021 diff master origin/master
 	} &> /dev/null
-	if [ "" = $? ]
-	then
+	if git merge-base --is-ancestor origin/master master; then
 		echo "42Check is up to date :)"
 	else
 	{
