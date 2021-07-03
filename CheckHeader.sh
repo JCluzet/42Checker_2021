@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/07/03 19:53:55 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/07/03 19:56:51 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,8 +38,7 @@ echo "\n${vertclair} Check for update... ${neutre}\n"
 	git -C ~/.42Checker_2021 pull | grep Already
 	if [ $? -eq 1 ];
 	then
-		printf "   ${blanc}Installation of ${version} completed 🎉\n"
-		sh ~/.42Checker_2021/CheckHeader.sh .
+		printf "   ${blanc}Installation of ${version} completed 🎉\n\nPlease relaunch /42check :)"
 		exit
 	# else
 	# 	header
