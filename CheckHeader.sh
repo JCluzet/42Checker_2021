@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/07/03 20:06:05 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/07/03 20:08:05 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,10 +35,11 @@ sp="/-\|"
 echo "\n${vertclair} Check for update... ${neutre}\n"
 	version=$(git -C ~/.42Checker_2021 reset --hard | cut -c30-)
 	{
-	git -C ~/.42Checker_2021 fetch
-	git -C ~/.42Checker_2021 diff master origin/master
+	git -C ~/.42Checker_2021 fetch &> /dev/null
+	diffs=$(git ~/.42Checker _2021 diff master origin/master)
 	} &> /dev/null
-	if git -C ~/.42Checker_2021 merge-base --is-ancestor origin/master master; then
+	if [ -z "$diffs" ]
+	then
 		echo "42Check is up to date :)"
 	else
 	{
