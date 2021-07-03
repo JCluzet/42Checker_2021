@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/07/03 20:09:36 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/07/03 20:12:03 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -363,14 +363,14 @@ while true; do                                                 ## detection prin
 			header
 			printf "\n\n${blanc}Running Printf tester... ${neutre}\n\n     "
 			sleep 2
-			sh runtest.sh
+			make
 			while true; do                                                                   ## DEMANDE DE DETAILS tester printf ?
-				printf "\n\n${blanc}Want to check details ? ${neutre}(y/n)\n\n     "
+				printf "\n\n${blanc}Want to check bonus ? ${neutre}(y/n)\n\n     "
     			read -p " " yn
     			case $yn in
         		[Yy]* )
 					header
-					printf "Details not available for now"
+					make b
 					break;;
         		[Nn]* ) echo "\n${rougefonce} 😕 Printf Tester details ignored"
 					sleep 1;
