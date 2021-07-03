@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/07/03 20:08:05 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/07/03 20:09:36 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,8 +48,8 @@ echo "\n${vertclair} Check for update... ${neutre}\n"
 		printf "   ${blanc}Installation of ${version} completed 🎉\n\nPlease relaunch /42check :)"
 		exit
 	fi
-
 	printf "   ${blanc}42Checker_2021 by jcluzet \n${vertclair}         Version : ${vertfonce}${version}${vertclair}"
+
 
 header()
 {
