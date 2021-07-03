@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/07/03 19:56:51 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/07/03 20:02:48 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,14 +34,19 @@ sp="/-\|"
 
 echo "\n${vertclair} Check for update... ${neutre}\n"
 	version=$(git -C ~/.42Checker_2021 reset --hard | cut -c30-)
-	git -C ~/.42Checker_2021 fetch origin
-	git -C ~/.42Checker_2021 pull | grep Already
-	if [ $? -eq 1 ];
+	{
+	git -C ~/.42Checker_2021 fetch
+	git -C ~/.42Checker_2021 diff master origin/master
+	} &> /dev/null
+	if [ "" = $? ]
 	then
+		echo "42Check is up to date :)"
+	else
+	{
+		git -C ~/.42Checker_2021 pull
+	}
 		printf "   ${blanc}Installation of ${version} completed 🎉\n\nPlease relaunch /42check :)"
 		exit
-	# else
-	# 	header
 	fi
 
 	printf "   ${blanc}42Checker_2021 by jcluzet \n${vertclair}         Version : ${vertfonce}${version}${vertclair}"
