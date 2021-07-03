@@ -6,7 +6,7 @@
 #    By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 00:44:50 by jcluzet           #+#    #+#              #
-#    Updated: 2021/05/30 20:13:05 by jocluzet         ###   ########.fr        #
+#    Updated: 2021/07/03 19:53:55 by jocluzet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -354,8 +354,8 @@ while true; do                                                 ## detection prin
     case $yn in
         [Yy]* )
 			header
-			git clone https://github.com/Mazoise/42TESTERS-PRINTF
-			cd 42TESTERS-PRINTF
+			git clone https://github.com/Tripouille/printfTester.git
+			cd printfTester
 			header
 			printf "\n\n${blanc}Running Printf tester... ${neutre}\n\n     "
 			sleep 2
@@ -366,7 +366,7 @@ while true; do                                                 ## detection prin
     			case $yn in
         		[Yy]* )
 					header
-					cat diff.txt
+					printf "Details not available for now"
 					break;;
         		[Nn]* ) echo "\n${rougefonce} 😕 Printf Tester details ignored"
 					sleep 1;
